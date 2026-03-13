@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NITIRAT Green Heart 2569</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Prompt:wght@300;400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #1a5c2a;
+  --green-mid: #2d8a4e;
+  --green-light: #4caf50;
+  --green-pale: #a8e6a3;
+  --green-pastel: #d4f5d0;
+  --cream: #fdf5e6;
+  --paper: #faf3e0;
+  --brown-dark: #5c3d1a;
+  --brown: #8b6914;
+  --brown-board: #a0784c;
+  --brown-light: #c4a265;
+  --yellow: #ffd700;
+  --sky-top: #87ceeb;
+  --sky-bottom: #c9e8f7;
+  --white: #ffffff;
+  --text-dark: #2c1810;
+  --text-mid: #4a3728;
+  --pink-sticker: #ff69b4;
+  --orange-sticker: #ff8c42;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Prompt', 'Kanit', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== TEXTURES ===== */
+.paper-texture {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.torn-edge-top {
+  position: relative;
+}
+.torn-edge-top::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: var(--paper);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q15 2 30 18 Q50 5 70 16 Q90 0 110 14 Q130 4 150 17 Q170 1 190 15 Q210 6 230 18 Q250 2 270 16 Q290 8 310 14 Q330 0 350 17 Q370 5 390 15 Q410 1 430 18 Q450 7 470 14 Q490 2 510 16 Q530 6 550 18 Q570 0 590 15 Q610 4 630 17 Q650 1 670 14 Q690 8 710 18 Q730 3 750 16 Q770 6 790 14 Q810 0 830 17 Q850 5 870 15 Q890 2 910 18 Q930 7 950 14 Q970 1 990 16 Q1010 6 1030 18 Q1050 3 1070 15 Q1090 0 1110 17 Q1130 5 1150 14 Q1170 2 1190 18 L1200 20 Z' fill='white'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q15 2 30 18 Q50 5 70 16 Q90 0 110 14 Q130 4 150 17 Q170 1 190 15 Q210 6 230 18 Q250 2 270 16 Q290 8 310 14 Q330 0 350 17 Q370 5 390 15 Q410 1 430 18 Q450 7 470 14 Q490 2 510 16 Q530 6 550 18 Q570 0 590 15 Q610 4 630 17 Q650 1 670 14 Q690 8 710 18 Q730 3 750 16 Q770 6 790 14 Q810 0 830 17 Q850 5 870 15 Q890 2 910 18 Q930 7 950 14 Q970 1 990 16 Q1010 6 1030 18 Q1050 3 1070 15 Q1090 0 1110 17 Q1130 5 1150 14 Q1170 2 1190 18 L1200 20 Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  z-index: 2;
+}
+
+.torn-edge-bottom {
+  position: relative;
+}
+.torn-edge-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: var(--paper);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 Q15 18 30 2 Q50 15 70 4 Q90 20 110 6 Q130 16 150 3 Q170 19 190 5 Q210 14 230 2 Q250 18 270 4 Q290 12 310 6 Q330 20 350 3 Q370 15 390 5 Q410 19 430 2 Q450 13 470 6 Q490 18 510 4 Q530 14 550 2 Q570 20 590 5 Q610 16 630 3 Q650 19 670 6 Q690 12 710 2 Q730 17 750 4 Q770 14 790 6 Q810 20 830 3 Q850 15 870 5 Q890 18 910 2 Q930 13 950 6 Q970 19 990 4 Q1010 14 1030 2 Q1050 17 1070 5 Q1090 20 1110 3 Q1130 15 1150 6 Q1170 18 1190 2 L1200 0 Z' fill='white'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 Q15 18 30 2 Q50 15 70 4 Q90 20 110 6 Q130 16 150 3 Q170 19 190 5 Q210 14 230 2 Q250 18 270 4 Q290 12 310 6 Q330 20 350 3 Q370 15 390 5 Q410 19 430 2 Q450 13 470 6 Q490 18 510 4 Q530 14 550 2 Q570 20 590 5 Q610 16 630 3 Q650 19 670 6 Q690 12 710 2 Q730 17 750 4 Q770 14 790 6 Q810 20 830 3 Q850 15 870 5 Q890 18 910 2 Q930 13 950 6 Q970 19 990 4 Q1010 14 1030 2 Q1050 17 1070 5 Q1090 20 1110 3 Q1130 15 1150 6 Q1170 18 1190 2 L1200 0 Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  z-index: 2;
+}
+
+/* ===== WASHI TAPE ===== */
+.washi {
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  opacity: 0.85;
+  z-index: 10;
+  border-radius: 2px;
+}
+.washi-green {
+  background: repeating-linear-gradient(45deg, rgba(76,175,80,0.5), rgba(76,175,80,0.5) 4px, rgba(168,230,163,0.5) 4px, rgba(168,230,163,0.5) 8px);
+}
+.washi-yellow {
+  background: repeating-linear-gradient(-45deg, rgba(255,215,0,0.5), rgba(255,215,0,0.5) 4px, rgba(255,235,100,0.5) 4px, rgba(255,235,100,0.5) 8px);
+}
+.washi-pink {
+  background: repeating-linear-gradient(45deg, rgba(255,182,193,0.5), rgba(255,182,193,0.5) 4px, rgba(255,218,224,0.5) 4px, rgba(255,218,224,0.5) 8px);
+}
+.washi-brown {
+  background: rgba(180,140,80,0.45);
+}
+
+/* ===== STICKER ===== */
+.sticker {
+  position: absolute;
+  z-index: 10;
+  filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.15));
+  transition: transform 0.3s;
+  pointer-events: none;
+}
+.sticker:hover { transform: scale(1.1) rotate(5deg); pointer-events: auto; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(92, 61, 26, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  border-bottom: 3px solid var(--brown-light);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.nav-logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--green-pale);
+}
+.nav-logo span { color: var(--yellow); }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-family: 'Itim', cursive;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.15); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sky background */
+.hero-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #5ba3d9 0%, #87ceeb 30%, #a8d8ea 50%, #c9e8f7 70%, #e8f4f8 100%);
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: cloudFloat 40s linear infinite;
+}
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+.cloud-1 { width: 120px; height: 50px; top: 12%; left: -150px; animation-duration: 50s; }
+.cloud-1::before { width: 60px; height: 60px; top: -30px; left: 20px; }
+.cloud-1::after { width: 80px; height: 50px; top: -20px; left: 50px; }
+.cloud-2 { width: 100px; height: 40px; top: 20%; left: -120px; animation-duration: 65s; animation-delay: 10s; }
+.cloud-2::before { width: 50px; height: 50px; top: -25px; left: 15px; }
+.cloud-2::after { width: 65px; height: 40px; top: -18px; left: 40px; }
+.cloud-3 { width: 80px; height: 35px; top: 8%; left: -100px; animation-duration: 55s; animation-delay: 25s; }
+.cloud-3::before { width: 45px; height: 45px; top: -22px; left: 10px; }
+.cloud-3::after { width: 55px; height: 35px; top: -15px; left: 30px; }
+
+@keyframes cloudFloat {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100vw + 300px)); }
+}
+
+/* Foliage top and bottom */
+.foliage-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background:
+    radial-gradient(ellipse 80px 90px at 10% 0%, #1a5c2a 70%, transparent 71%),
+    radial-gradient(ellipse 120px 100px at 25% 0%, #2d7a3e 70%, transparent 71%),
+    radial-gradient(ellipse 100px 110px at 40% 0%, #1a6c30 70%, transparent 71%),
+    radial-gradient(ellipse 130px 95px at 55% 0%, #237a35 70%, transparent 71%),
+    radial-gradient(ellipse 90px 105px at 70% 0%, #1a5c2a 70%, transparent 71%),
+    radial-gradient(ellipse 110px 100px at 85% 0%, #2d8a4e 70%, transparent 71%),
+    radial-gradient(ellipse 100px 90px at 95% 0%, #1a6c30 70%, transparent 71%),
+    radial-gradient(ellipse 70px 80px at 5% 0%, #2d8a4e 70%, transparent 71%),
+    radial-gradient(ellipse 85px 75px at 18% 0%, #348f50 70%, transparent 71%),
+    radial-gradient(ellipse 95px 85px at 48% 0%, #1a8040 70%, transparent 71%),
+    radial-gradient(ellipse 75px 70px at 78% 0%, #2a7a42 70%, transparent 71%);
+  z-index: 3;
+}
+
+.foliage-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background:
+    radial-gradient(ellipse 140px 130px at 8% 100%, #1a5c2a 65%, transparent 66%),
+    radial-gradient(ellipse 120px 140px at 22% 100%, #2d8a4e 65%, transparent 66%),
+    radial-gradient(ellipse 160px 120px at 38% 100%, #1a6c30 65%, transparent 66%),
+    radial-gradient(ellipse 130px 150px at 55% 100%, #237a35 65%, transparent 66%),
+    radial-gradient(ellipse 150px 130px at 72% 100%, #2d8a4e 65%, transparent 66%),
+    radial-gradient(ellipse 120px 145px at 88% 100%, #1a5c2a 65%, transparent 66%),
+    radial-gradient(ellipse 100px 110px at 0% 100%, #348f50 65%, transparent 66%),
+    radial-gradient(ellipse 110px 100px at 100% 100%, #1a6c30 65%, transparent 66%);
+  z-index: 3;
+}
+
+/* Board */
+.hero-board {
+  position: relative;
+  z-index: 5;
+  background: var(--paper);
+  border: 12px solid var(--brown-board);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 0 30px rgba(0,0,0,0.05),
+    6px 6px 20px rgba(0,0,0,0.3),
+    0 0 0 4px var(--brown-light);
+  max-width: 680px;
+  width: 90%;
+  padding: 50px 40px 40px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.hero-board .washi-1 { top: -15px; left: 30%; transform: rotate(-2deg); }
+.hero-board .washi-2 { top: -15px; right: 10%; transform: rotate(3deg); }
+
+.hero-title-wrapper {
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  font-weight: 700;
+  color: var(--green-mid);
+  line-height: 1.05;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.08);
+  letter-spacing: 2px;
+}
+
+.hero-title-line2 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: var(--green-dark);
+  line-height: 1.1;
+}
+
+.hero-date-badge {
+  display: inline-block;
+  background: var(--green-mid);
+  color: var(--white);
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 6px 28px;
+  border-radius: 8px;
+  transform: rotate(-1.5deg);
+  margin: 16px 0 20px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+}
+
+.hero-desc {
+  font-family: 'Itim', cursive;
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+.btn-green {
+  background: var(--green-mid);
+  color: var(--white);
+  box-shadow: 3px 3px 0 var(--green-dark);
+}
+.btn-green:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--green-dark); }
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--brown-dark);
+  box-shadow: 3px 3px 0 #c4a200;
+}
+.btn-yellow:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 #c4a200; }
+
+/* Floating hearts */
+.floating-heart {
+  position: absolute;
+  z-index: 4;
+  font-size: 1.6rem;
+  animation: heartBob 4s ease-in-out infinite;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+}
+@keyframes heartBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+/* ===== SECTIONS COMMON ===== */
+.scrap-section {
+  position: relative;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Notebook paper style */
+.notebook-paper {
+  background: var(--white);
+  background-image:
+    linear-gradient(rgba(200,200,255,0.2) 1px, transparent 1px);
+  background-size: 100% 32px;
+  border-left: 3px solid #ffb3b3;
+  margin-left: 20px;
+  padding: 30px 30px 30px 40px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* Polaroid style card */
+.polaroid {
+  background: white;
+  padding: 12px 12px 40px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.12);
+  transform: rotate(var(--rot, -2deg));
+  transition: transform 0.3s;
+}
+.polaroid:hover { transform: rotate(0deg) scale(1.02); }
+
+/* Cork board style */
+.cork-board {
+  background: #d4a855;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  border: 10px solid var(--brown-board);
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.1),
+    4px 4px 15px rgba(0,0,0,0.25);
+  padding: 40px 30px;
+}
+
+/* Push pin */
+.pin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 -2px 3px rgba(0,0,0,0.2);
+  z-index: 15;
+}
+.pin-red { background: radial-gradient(circle at 35% 35%, #ff6b6b, #cc3333); }
+.pin-green { background: radial-gradient(circle at 35% 35%, #6bff6b, #33cc33); }
+.pin-yellow { background: radial-gradient(circle at 35% 35%, #ffe066, #ccaa00); }
+.pin-blue { background: radial-gradient(circle at 35% 35%, #6bb5ff, #3388cc); }
+
+/* Section title on tape */
+.tape-title {
+  display: inline-block;
+  background: rgba(255,215,0,0.6);
+  padding: 10px 32px;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  transform: rotate(-1deg);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* Handwritten style */
+.handwritten {
+  font-family: 'Caveat', cursive;
+}
+
+.itim {
+  font-family: 'Itim', cursive;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-bg {
+  background: linear-gradient(180deg, #e8f4e0 0%, var(--cream) 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.about-card {
+  background: var(--white);
+  padding: 24px 20px;
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.3s;
+}
+.about-card:nth-child(1) { --rot: -1.5deg; }
+.about-card:nth-child(2) { --rot: 1deg; }
+.about-card:nth-child(3) { --rot: -0.8deg; }
+.about-card:nth-child(4) { --rot: 1.5deg; }
+.about-card:hover { transform: rotate(0deg) translateY(-4px); }
+
+.about-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.about-card h3 {
+  font-family: 'Itim', cursive;
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+.about-card p {
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ===== SCHEDULE ===== */
+.schedule-bg {
+  background:
+    linear-gradient(180deg, var(--cream) 0%, #e0eed8 50%, var(--cream) 100%);
+}
+
+.schedule-board {
+  background: var(--paper);
+  border: 10px solid var(--brown-board);
+  border-radius: 6px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+  padding: 40px 30px;
+  position: relative;
+}
+
+.schedule-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  justify-content: center;
+}
+
+.schedule-tab {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: var(--green-pastel);
+  color: var(--green-dark);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+.schedule-tab.active {
+  background: var(--green-mid);
+  color: white;
+  box-shadow: 2px 2px 0 var(--green-dark);
+}
+
+.timeline { padding-left: 28px; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: repeating-linear-gradient(to bottom, var(--green-mid) 0px, var(--green-mid) 8px, transparent 8px, transparent 14px);
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  background: var(--yellow);
+  border: 3px solid var(--green-mid);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.tl-time {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--green-dark);
+  background: var(--green-pastel);
+  padding: 4px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  min-width: 90px;
+  text-align: center;
+}
+
+.tl-content {
+  flex: 1;
+}
+.tl-title {
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+.tl-desc {
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  margin-top: 2px;
+}
+
+.hidden { display: none; }
+
+/* ===== DRESS CODE ===== */
+.dresscode-bg {
+  background: var(--cream);
+}
+
+.dresscode-note {
+  background: #fffde0;
+  padding: 36px 32px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 0 auto 28px;
+  position: relative;
+  transform: rotate(-0.5deg);
+  background-image:
+    linear-gradient(rgba(200,200,150,0.2) 1px, transparent 1px);
+  background-size: 100% 28px;
+}
+
+.dresscode-note h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+.dresscode-note p {
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+.dress-tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.dress-tip {
+  background: white;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.3s;
+}
+.dress-tip:nth-child(1) { --rot: 1deg; }
+.dress-tip:nth-child(2) { --rot: -1.5deg; }
+.dress-tip:nth-child(3) { --rot: 0.8deg; }
+.dress-tip:hover { transform: rotate(0deg) scale(1.03); }
+
+.dress-tip-icon { font-size: 2rem; margin-bottom: 8px; }
+.dress-tip h4 {
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+.dress-tip p {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+/* ===== MINI GAME ===== */
+.game-bg {
+  background: linear-gradient(180deg, #dff0d8 0%, var(--cream) 100%);
+}
+
+.game-board {
+  background: var(--paper);
+  border: 10px solid var(--brown-board);
+  border-radius: 6px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+  padding: 36px 28px;
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
+.game-score-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background: var(--green-pastel);
+  border-radius: 6px;
+}
+.game-score-bar span {
+  font-family: 'Itim', cursive;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+.score-value {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  color: var(--green-mid);
+}
+
+.game-question {
+  font-family: 'Itim', cursive;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.game-item {
+  font-size: 3.5rem;
+  margin: 12px 0 8px;
+  animation: popIn 0.4s ease-out;
+}
+@keyframes popIn {
+  0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.game-item-name {
+  font-family: 'Itim', cursive;
+  font-size: 1.1rem;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+
+.bin-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.bin-btn {
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  font-family: 'Itim', cursive;
+  font-size: 0.9rem;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+.bin-btn .bin-emoji { font-size: 1.8rem; }
+
+.bin-btn.blue { background: #e3f2fd; color: #1565c0; border-color: #bbdefb; }
+.bin-btn.blue:hover { border-color: #1565c0; transform: translateY(-3px); box-shadow: 3px 5px 0 rgba(0,0,0,0.12); }
+.bin-btn.green { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+.bin-btn.green:hover { border-color: #2e7d32; transform: translateY(-3px); box-shadow: 3px 5px 0 rgba(0,0,0,0.12); }
+.bin-btn.yellow { background: #fff8e1; color: #f57f17; border-color: #fff9c4; }
+.bin-btn.yellow:hover { border-color: #f57f17; transform: translateY(-3px); box-shadow: 3px 5px 0 rgba(0,0,0,0.12); }
+.bin-btn.red { background: #fce4ec; color: #c62828; border-color: #f8bbd0; }
+.bin-btn.red:hover { border-color: #c62828; transform: translateY(-3px); box-shadow: 3px 5px 0 rgba(0,0,0,0.12); }
+
+.bin-btn.correct { animation: correctBounce 0.5s; border-color: #4caf50 !important; background: #c8e6c9 !important; }
+.bin-btn.wrong { animation: wrongShake 0.4s; border-color: #f44336 !important; background: #ffcdd2 !important; }
+
+@keyframes correctBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.game-feedback {
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: 'Itim', cursive;
+  font-size: 0.9rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game-feedback.correct { background: #e8f5e9; color: #2e7d32; }
+.game-feedback.wrong { background: #fce4ec; color: #c62828; }
+
+.game-progress {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.pdot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s;
+}
+.pdot.c { background: var(--green-light); }
+.pdot.w { background: #ef5350; }
+.pdot.cur { background: var(--yellow); transform: scale(1.3); }
+
+.game-result h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 2.2rem;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+.big-score {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 3.5rem;
+  color: var(--green-mid);
+  margin: 12px 0;
+}
+.game-result p {
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+
+/* ===== PHOTOBOOTH ===== */
+.photobooth-bg {
+  background: linear-gradient(180deg, var(--cream) 0%, #e8f0e0 100%);
+}
+
+.pb-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Frame management */
+.frame-manager {
+  margin-bottom: 20px;
+}
+
+.frame-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.frame-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  border: 3px solid #ddd;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s;
+  background: var(--green-pastel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.frame-thumb.active {
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(45,138,78,0.3);
+  transform: scale(1.08);
+}
+.frame-thumb:hover { border-color: var(--green-mid); }
+.frame-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.frame-thumb .thumb-label {
+  font-family: 'Itim', cursive;
+  font-size: 0.6rem;
+  color: var(--green-dark);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.frame-thumb .remove-frame {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ff4444;
+  color: white;
+  border: none;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  z-index: 2;
+}
+.frame-thumb:hover .remove-frame.can-remove { display: flex; }
+
+.upload-frame-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'Itim', cursive;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--green-dark);
+  border: 2px dashed var(--green-mid);
+  transition: all 0.3s;
+}
+.upload-frame-btn:hover {
+  background: var(--green-pastel);
+  border-style: solid;
+}
+#frameUpload { display: none; }
+
+.canvas-wrap {
+  position: relative;
+  margin: 0 auto 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+  background: #f0f0f0;
+  max-width: 480px;
+  aspect-ratio: 1;
+}
+.canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.photo-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.photo-upload-label {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: 'Itim', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: var(--green-mid);
+  color: var(--white);
+  box-shadow: 3px 3px 0 var(--green-dark);
+  transition: all 0.3s;
+}
+.photo-upload-label:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--green-dark); }
+#photoUpload { display: none; }
+
+.photo-hint {
+  font-family: 'Itim', cursive;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-top: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--brown-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 36px 24px;
+  position: relative;
+}
+.footer-logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green-pale);
+  margin-bottom: 6px;
+}
+.footer-logo span { color: var(--yellow); }
+.footer p {
+  font-family: 'Itim', cursive;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+/* ===== REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease-out;
+}
+.reveal.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero-board { padding: 36px 20px 28px; margin-top: 70px; }
+  .scrap-section { padding: 60px 16px; }
+  .schedule-board, .game-board { padding: 24px 16px; }
+  .cork-board { padding: 24px 16px; }
+  .dresscode-note { padding: 24px 18px; }
+  .foliage-top { height: 120px; }
+  .foliage-bottom { height: 140px; }
+  .tl-item { flex-direction: column; gap: 4px; }
+  .tl-time { min-width: auto; align-self: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">NITIRAT <span>Green Heart</span></div>
+    <div class="nav-links">
+      <a href="#about">เกี่ยวกับงาน</a>
+      <a href="#schedule">กำหนดการ</a>
+      <a href="#dresscode">Dress Code</a>
+      <a href="#game">Mini Game</a>
+      <a href="#photobooth">Photobooth</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-sky"></div>
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="foliage-top"></div>
+  <div class="foliage-bottom"></div>
+
+  <!-- Floating hearts -->
+  <div class="floating-heart" style="left:8%;top:40%;animation-delay:0s;">💚</div>
+  <div class="floating-heart" style="left:88%;top:35%;animation-delay:1.5s;">💚</div>
+  <div class="floating-heart" style="left:15%;top:65%;animation-delay:0.8s;font-size:1.2rem;">🤍</div>
+  <div class="floating-heart" style="left:82%;top:60%;animation-delay:2.2s;font-size:1rem;">💛</div>
+  <div class="floating-heart" style="left:5%;top:28%;animation-delay:3s;font-size:1rem;">🌿</div>
+  <div class="floating-heart" style="left:92%;top:50%;animation-delay:1s;font-size:1rem;">🍃</div>
+
+  <div class="hero-board">
+    <div class="washi washi-green washi-1" style="width:100px;"></div>
+    <div class="washi washi-yellow washi-2" style="width:90px;"></div>
+    <div class="hero-title-wrapper">
+      <div class="hero-title">NITIRAT</div>
+      <div class="hero-title-line2">Green Heart 💚</div>
+    </div>
+    <div class="hero-date-badge">📅 21 มีนาคม 2569</div>
+    <p class="hero-desc">
+      เขียวรักษ์โลก — จุดเริ่มต้นเล็กๆ ผลลัพธ์ที่ยิ่งใหญ่<br>
+      Virtual Event รวมใจรักษ์สิ่งแวดล้อม โดย HR NITIRAT
+    </p>
+    <div class="hero-cta">
+      <a href="#schedule" class="btn btn-green">📋 ดูกำหนดการ</a>
+      <a href="#game" class="btn btn-yellow">🎮 เล่น Mini Game</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="scrap-section about-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="tape-title">🌍 ร่วมกันสร้างโลกที่ดีกว่า</div>
+      <p class="itim" style="font-size:1rem;color:var(--text-mid);max-width:600px;line-height:1.8;margin-bottom:28px;">
+        เปลี่ยนถุงพลาสติกเป็นถุงผ้า พกขวดน้ำเอง และทำปุ๋ยจากเศษอาหาร
+        เพราะก้าวเล็กๆ ของเราทุกคน รวมกันแล้วสร้างความแตกต่างที่ยิ่งใหญ่ได้เสมอ ✨
+      </p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-card">
+        <div class="pin pin-red" style="top:-8px;left:45%;"></div>
+        <div class="about-icon">♻️</div>
+        <h3>Zero Waste</h3>
+        <p>ใช้ชีวิตแบบ Zero Waste ลดขยะ ลดมลพิษ เพื่อธรรมชาติของเรา</p>
+      </div>
+      <div class="about-card">
+        <div class="pin pin-green" style="top:-8px;left:45%;"></div>
+        <div class="about-icon">👗</div>
+        <h3>Sustainable Fashion</h3>
+        <p>Mix & Match เสื้อผ้าเก่า สนุกกับแฟชั่นที่ช่วยลดการใช้ทรัพยากร</p>
+      </div>
+      <div class="about-card">
+        <div class="pin pin-yellow" style="top:-8px;left:45%;"></div>
+        <div class="about-icon">💡</div>
+        <h3>Go Green at Work</h3>
+        <p>Save Energy, Reduce Waste, Protect Our Planet</p>
+      </div>
+      <div class="about-card">
+        <div class="pin pin-blue" style="top:-8px;left:45%;"></div>
+        <div class="about-icon">🌱</div>
+        <h3>Inspire Others</h3>
+        <p>ลดพลาสติก เริ่มจากของใช้ในบ้าน เปลี่ยนเล็กน้อย โลกดีขึ้นทุกวัน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="scrap-section schedule-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="tape-title">📋 กำหนดการ</div>
+    </div>
+    <div class="schedule-board reveal">
+      <div class="pin pin-red" style="top:-8px;left:20px;"></div>
+      <div class="pin pin-green" style="top:-8px;right:20px;"></div>
+      <div class="washi washi-brown" style="top:-16px;left:35%;width:130px;transform:rotate(1deg);"></div>
+
+      <div class="schedule-tabs">
+        <button class="schedule-tab active" onclick="switchTab('morning')">🌅 ช่วงเช้า</button>
+        <button class="schedule-tab" onclick="switchTab('evening')">🌆 ช่วงเย็น</button>
+      </div>
+
+      <div id="morning-tl" class="timeline">
+        <div class="tl-item"><div class="tl-time">09:00 น.</div><div class="tl-content"><div class="tl-title">🙏 พิธีทำบุญตักบาตร พระสงฆ์ ๙ รูป</div></div></div>
+        <div class="tl-item"><div class="tl-time">09:30 น.</div><div class="tl-content"><div class="tl-title">📸 ร่วมถ่ายภาพกับ Backdrop NITIRAT GREEN HEART</div></div></div>
+        <div class="tl-item"><div class="tl-time">11:00 น.</div><div class="tl-content"><div class="tl-title">🍱 ถวายภัตตาหารเพล</div></div></div>
+      </div>
+
+      <div id="evening-tl" class="timeline hidden">
+        <div class="tl-item"><div class="tl-time">17:00 น.</div><div class="tl-content"><div class="tl-title">🍽️ ร่วมรับประทานอาหารและฟังดนตรีสดร่วมกัน</div></div></div>
+        <div class="tl-item"><div class="tl-time">17:30 น.</div><div class="tl-content"><div class="tl-title">🎁 ตอบคำถามชิงรางวัล Q&A</div></div></div>
+        <div class="tl-item"><div class="tl-time">18:00 น.</div><div class="tl-content"><div class="tl-title">🎸 NITIRAT Band — ดนตรีสดจากวงดนตรีบริษัท</div></div></div>
+        <div class="tl-item"><div class="tl-time">19:00 น.</div><div class="tl-content"><div class="tl-title">⭐ กิจกรรมพิเศษ ช่วงที่ 1</div></div></div>
+        <div class="tl-item"><div class="tl-time">19:30 น.</div><div class="tl-content"><div class="tl-title">🎤 วงดนตรี Ka Puk Look ช่วงที่ 1</div></div></div>
+        <div class="tl-item"><div class="tl-time">20:00 น.</div><div class="tl-content"><div class="tl-title">⭐ กิจกรรมพิเศษ ช่วงที่ 2</div></div></div>
+        <div class="tl-item"><div class="tl-time">20:30 น.</div><div class="tl-content"><div class="tl-title">🎤 วงดนตรี Ka Puk Look ช่วงที่ 2</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRESS CODE -->
+<section id="dresscode" class="scrap-section dresscode-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="tape-title">👗 Dress Code: เขียวรักษ์โลก</div>
+    </div>
+    <div class="dresscode-note reveal">
+      <div class="washi washi-green" style="top:-14px;left:30%;width:110px;transform:rotate(-2deg);"></div>
+      <div class="washi washi-pink" style="top:-14px;right:10%;width:80px;transform:rotate(3deg);"></div>
+      <h3>🌿 Mix & Match Fashion Reuse</h3>
+      <p>
+        ขอเชิญชวนพนักงานทุกท่าน นำเสื้อผ้าเก่า หรือผ้าที่ไม่ได้ใช้งานแล้ว
+        มาสร้างสรรค์ใหม่ผ่านการ Mix & Match หรือดัดแปลง
+        ให้กลายเป็นแฟชั่นในสไตล์ของตนเอง ภายใต้แนวคิด <strong>เขียวรักษ์โลก</strong> (Sustainable Fashion) 🌎
+      </p>
+    </div>
+    <div class="dress-tips reveal">
+      <div class="dress-tip">
+        <div class="pin pin-green" style="top:-8px;left:45%;"></div>
+        <div class="dress-tip-icon">✅</div>
+        <h4>Mix & Match เสื้อผ้าที่มี</h4>
+        <p>จับคู่ใหม่ให้เป็นลุคสีเขียว</p>
+      </div>
+      <div class="dress-tip">
+        <div class="pin pin-yellow" style="top:-8px;left:45%;"></div>
+        <div class="dress-tip-icon">🎨</div>
+        <h4>ใช้ความคิดสร้างสรรค์</h4>
+        <p>เปลี่ยนของเก่าให้เป็นจุดเด่น</p>
+      </div>
+      <div class="dress-tip">
+        <div class="pin pin-red" style="top:-8px;left:45%;"></div>
+        <div class="dress-tip-icon">⚠️</div>
+        <h4>ไม่ใช่จากวัสดุเหลือใช้</h4>
+        <p>ใช้เสื้อผ้าที่มี ไม่ใช่ซองขนม/พลาสติก</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI GAME -->
+<section id="game" class="scrap-section game-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="tape-title">🎮 คัดแยกขยะ ช่วยโลก!</div>
+      <p class="itim" style="font-size:1rem;color:var(--text-mid);margin-bottom:24px;">
+        ทดสอบความรู้เรื่องการคัดแยกขยะ — ทิ้งขยะให้ถูกถังกันเถอะ!
+      </p>
+    </div>
+    <div class="game-board reveal" id="gameContainer"></div>
+  </div>
+</section>
+
+<!-- PHOTOBOOTH -->
+<section id="photobooth" class="scrap-section photobooth-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="tape-title">📸 Photobooth ออนไลน์</div>
+      <p class="itim" style="font-size:1rem;color:var(--text-mid);margin-bottom:24px;">
+        อัปโหลดรูปภาพ → เลือกเฟรม (หรืออัปโหลดเฟรมของคุณเอง!) → Save เก็บไว้เป็นที่ระลึก
+      </p>
+    </div>
+    <div class="pb-container reveal">
+      <!-- Frame selector -->
+      <div class="frame-manager">
+        <div class="frame-list" id="frameList"></div>
+        <label class="upload-frame-btn" for="frameUpload">➕ อัปโหลดเฟรมของคุณ (.png)</label>
+        <input type="file" id="frameUpload" accept="image/png">
+      </div>
+
+      <!-- Canvas -->
+      <div class="canvas-wrap">
+        <canvas id="photoCanvas" width="960" height="960"></canvas>
+      </div>
+
+      <!-- Controls -->
+      <div class="photo-controls">
+        <label class="photo-upload-label" for="photoUpload">📷 อัปโหลดรูป</label>
+        <input type="file" id="photoUpload" accept="image/*">
+        <button class="btn btn-yellow" onclick="savePhoto()">💾 Save รูป</button>
+      </div>
+      <p class="photo-hint">💡 เฟรมของคุณ: ใช้ PNG ที่มีพื้นที่โปร่งใส (transparent) ตรงส่วนที่ต้องการให้เห็นรูปภาพ</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">NITIRAT <span>Green Heart</span> 💚</div>
+  <p>21 มีนาคม 2569 • จัดโดย HR NITIRAT</p>
+  <p>จุดเริ่มต้นเล็กๆ ผลลัพธ์ที่ยิ่งใหญ่</p>
+</footer>
+
+<script>
+// ===== SCHEDULE TABS =====
+function switchTab(tab) {
+  document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('morning-tl').classList.add('hidden');
+  document.getElementById('evening-tl').classList.add('hidden');
+  if (tab === 'morning') {
+    document.getElementById('morning-tl').classList.remove('hidden');
+    document.querySelectorAll('.schedule-tab')[0].classList.add('active');
+  } else {
+    document.getElementById('evening-tl').classList.remove('hidden');
+    document.querySelectorAll('.schedule-tab')[1].classList.add('active');
+  }
+}
+
+// ===== SCROLL REVEAL =====
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ===== SMOOTH NAV =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ===== MINI GAME =====
+const wasteItems = [
+  { name: 'ขวดน้ำพลาสติก', emoji: '🧴', bin: 'recycle', fact: 'ขวดพลาสติก 1 ใบ ใช้เวลาย่อยสลาย 450 ปี!' },
+  { name: 'เปลือกกล้วย', emoji: '🍌', bin: 'organic', fact: 'เศษอาหารทำปุ๋ยหมักได้ภายใน 2-6 สัปดาห์' },
+  { name: 'กระดาษ A4', emoji: '📄', bin: 'recycle', fact: 'กระดาษ 1 ตัน รีไซเคิลช่วยรักษาต้นไม้ได้ 17 ต้น' },
+  { name: 'ถ่านไฟฉาย', emoji: '🔋', bin: 'hazardous', fact: 'ถ่านไฟฉายมีสารปรอทและตะกั่วที่เป็นอันตราย' },
+  { name: 'กล่องนม UHT', emoji: '🥛', bin: 'recycle', fact: 'กล่องนม UHT รีไซเคิลเป็นหลังคาบ้านได้' },
+  { name: 'เศษอาหาร', emoji: '🍚', bin: 'organic', fact: 'ไทยสร้างขยะอาหารกว่า 17 ล้านตันต่อปี' },
+  { name: 'กระป๋องอลูมิเนียม', emoji: '🥫', bin: 'recycle', fact: 'อลูมิเนียมรีไซเคิลได้ไม่จำกัดครั้ง!' },
+  { name: 'หลอดไฟ', emoji: '💡', bin: 'hazardous', fact: 'หลอดไฟมีสารปรอท ต้องทิ้งถังขยะอันตราย' },
+  { name: 'ถุงพลาสติก', emoji: '🛍️', bin: 'general', fact: 'ถุงพลาสติกใช้เวลาย่อยสลาย 10-1,000 ปี' },
+  { name: 'ใบไม้แห้ง', emoji: '🍂', bin: 'organic', fact: 'ใบไม้แห้งทำปุ๋ยหมักได้ดีเยี่ยม' },
+  { name: 'กล่องโฟม', emoji: '📦', bin: 'general', fact: 'โฟมใช้เวลาย่อยสลายมากกว่า 500 ปี' },
+  { name: 'ยาหมดอายุ', emoji: '💊', bin: 'hazardous', fact: 'ยาหมดอายุปนเปื้อนในน้ำส่งผลต่อสิ่งมีชีวิต' },
+];
+
+const bins = [
+  { id: 'recycle', name: 'รีไซเคิล', emoji: '♻️', cls: 'blue' },
+  { id: 'organic', name: 'อินทรีย์', emoji: '🌱', cls: 'green' },
+  { id: 'general', name: 'ทั่วไป', emoji: '🗑️', cls: 'yellow' },
+  { id: 'hazardous', name: 'อันตราย', emoji: '☣️', cls: 'red' },
+];
+
+let gs = { items:[], cur:0, score:0, answers:[], fb:'', fbType:'', disabled:false };
+
+function shuffle(a) {
+  const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b;
+}
+
+function initGame() {
+  gs = { items: shuffle(wasteItems).slice(0,10), cur:0, score:0, answers:[], fb:'', fbType:'', disabled:false };
+  renderGame();
+}
+
+function handleAnswer(binId) {
+  if (gs.disabled) return;
+  gs.disabled = true;
+  const item = gs.items[gs.cur];
+  const ok = binId === item.bin;
+  if (ok) { gs.score++; gs.fb = '✅ ถูกต้อง! ' + item.fact; gs.fbType = 'correct'; }
+  else { const cb = bins.find(b=>b.id===item.bin); gs.fb = '❌ ควรทิ้งถัง "' + cb.name + '" — ' + item.fact; gs.fbType = 'wrong'; }
+  gs.answers.push(ok);
+  renderGame();
+  setTimeout(() => { gs.cur++; gs.fb=''; gs.disabled=false; renderGame(); }, 2200);
+}
+
+function renderGame() {
+  const c = document.getElementById('gameContainer');
+  if (!gs.items.length) { initGame(); return; }
+  if (gs.cur >= gs.items.length) {
+    const pct = Math.round((gs.score/gs.items.length)*100);
+    let msg = pct>=90?'🏆 เก่งมาก! นักอนุรักษ์ตัวจริง!':pct>=70?'🌟 ดีมาก!':pct>=50?'💪 พอใช้ได้!':'📚 มาเรียนรู้เพิ่มกัน!';
+    c.innerHTML = `<div class="game-result"><h3>จบเกมแล้ว!</h3><div class="big-score">${gs.score}/${gs.items.length}</div><p>${msg}</p><button class="btn btn-green" onclick="initGame()">🔄 เล่นอีกครั้ง</button></div>`;
+    return;
+  }
+  const item = gs.items[gs.cur];
+  c.innerHTML = `
+    <div class="game-score-bar"><span>ข้อ ${gs.cur+1}/${gs.items.length}</span><span>คะแนน: <span class="score-value">${gs.score}</span></span></div>
+    <div class="game-question">ขยะชิ้นนี้ ควรทิ้งถังไหน?</div>
+    <div class="game-item">${item.emoji}</div>
+    <div class="game-item-name">${item.name}</div>
+    <div class="bin-options">${bins.map(b => {
+      let ex='';
+      if(gs.fb){if(b.id===item.bin)ex=' correct';}
+      return `<button class="bin-btn ${b.cls}${ex}" onclick="handleAnswer('${b.id}')"><span class="bin-emoji">${b.emoji}</span>${b.name}</button>`;
+    }).join('')}</div>
+    ${gs.fb?`<div class="game-feedback ${gs.fbType}">${gs.fb}</div>`:'<div class="game-feedback"></div>'}
+    <div class="game-progress">${gs.items.map((_,i)=>{let c='';if(i<gs.answers.length)c=gs.answers[i]?'c':'w';else if(i===gs.cur)c='cur';return `<div class="pdot ${c}"></div>`;}).join('')}</div>`;
+}
+initGame();
+
+// ===== PHOTOBOOTH =====
+let photoFrames = [];
+let selectedFrameIdx = 0;
+let userPhoto = null;
+
+// Built-in frames drawn on canvas
+const builtInFrames = [
+  {
+    id: 'builtin-green-heart',
+    name: '💚 Green Heart',
+    isBuiltIn: true,
+    draw(ctx, w, h) {
+      // Green gradient border
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,'#0d3b1a'); g.addColorStop(0.5,'#2d8a4e'); g.addColorStop(1,'#0d3b1a');
+      ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+      // Top
+      ctx.fillStyle='rgba(0,0,0,0.45)'; ctx.fillRect(0,0,w,80);
+      ctx.font='bold 30px Fredoka,sans-serif'; ctx.fillStyle='#a8e6a3'; ctx.textAlign='center';
+      ctx.fillText('NITIRAT GREEN HEART',w/2,52);
+      // Bottom
+      ctx.fillStyle='rgba(0,0,0,0.45)'; ctx.fillRect(0,h-88,w,88);
+      ctx.font='bold 24px Fredoka,sans-serif'; ctx.fillStyle='#ffd700'; ctx.fillText('21 มีนาคม 2569',w/2,h-54);
+      ctx.font='16px Itim,cursive'; ctx.fillStyle='#a8e6a3'; ctx.fillText('เขียวรักษ์โลก 💚',w/2,h-26);
+      // Corner deco
+      ctx.font='38px serif'; ctx.fillText('🍃',44,130); ctx.fillText('🌿',w-44,130); ctx.fillText('🌱',44,h-108); ctx.fillText('🍀',w-44,h-108);
+    },
+    thumbDraw(ctx, w, h) {
+      const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#0d3b1a');g.addColorStop(1,'#2d8a4e');
+      ctx.fillStyle=g;ctx.fillRect(0,0,w,h);ctx.font='bold 10px Fredoka';ctx.fillStyle='#a8e6a3';ctx.textAlign='center';ctx.fillText('GREEN',w/2,h/2-4);ctx.fillText('HEART',w/2,h/2+10);
+    }
+  },
+  {
+    id: 'builtin-eco',
+    name: '🌍 Eco Frame',
+    isBuiltIn: true,
+    draw(ctx, w, h) {
+      const g=ctx.createLinearGradient(0,0,0,h);g.addColorStop(0,'#1a472a');g.addColorStop(1,'#2d5a2d');
+      ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+      // Diagonal stripe pattern
+      ctx.strokeStyle='rgba(168,230,163,0.12)';ctx.lineWidth=16;
+      for(let i=-h;i<w+h;i+=50){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i+h,h);ctx.stroke();}
+      // Top bar
+      ctx.fillStyle='rgba(0,0,0,0.5)';roundRect(ctx,16,12,w-32,56,10);ctx.fill();
+      ctx.font='bold 24px Fredoka,sans-serif';ctx.fillStyle='#ffd700';ctx.textAlign='center';ctx.fillText('🌍 NITIRAT GREEN HEART 🌍',w/2,48);
+      // Bottom bar
+      ctx.fillStyle='rgba(0,0,0,0.5)';roundRect(ctx,16,h-72,w-32,58,10);ctx.fill();
+      ctx.font='18px Itim,cursive';ctx.fillStyle='#fff';ctx.fillText('Go Green • Save Energy • Reduce Waste',w/2,h-36);
+    },
+    thumbDraw(ctx, w, h) {
+      ctx.fillStyle='#1a472a';ctx.fillRect(0,0,w,h);ctx.font='bold 10px Fredoka';ctx.fillStyle='#ffd700';ctx.textAlign='center';ctx.fillText('ECO',w/2,h/2-4);ctx.fillText('FRAME',w/2,h/2+10);
+    }
+  },
+  {
+    id: 'builtin-pastel',
+    name: '🌸 Pastel',
+    isBuiltIn: true,
+    draw(ctx, w, h) {
+      ctx.fillStyle='#d4f5d0';ctx.fillRect(0,0,w,h);
+      // Dots
+      ctx.fillStyle='rgba(76,175,80,0.12)';
+      for(let x=0;x<w;x+=36){for(let y=0;y<h;y+=36){ctx.beginPath();ctx.arc(x+(y%72===0?0:18),y,5,0,Math.PI*2);ctx.fill();}}
+      // Top ribbon
+      ctx.fillStyle='#4caf50';ctx.fillRect(0,0,w,66);ctx.font='bold 24px Fredoka,sans-serif';ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText('🌿 NITIRAT Green Heart 🌿',w/2,44);
+      // Bottom
+      ctx.fillStyle='#4caf50';ctx.fillRect(0,h-66,w,66);ctx.font='bold 20px Itim,cursive';ctx.fillStyle='#fff';ctx.fillText('21 มีนาคม 2569 💚',w/2,h-30);
+    },
+    thumbDraw(ctx, w, h) {
+      ctx.fillStyle='#d4f5d0';ctx.fillRect(0,0,w,h);ctx.fillStyle='#4caf50';ctx.fillRect(0,0,w,14);ctx.fillRect(0,h-14,w,14);
+      ctx.font='bold 10px Fredoka';ctx.fillStyle='#4caf50';ctx.textAlign='center';ctx.fillText('PASTEL',w/2,h/2+4);
+    }
+  }
+];
+
+function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+
+function initPhotobooth() {
+  // Start with built-in frames
+  photoFrames = builtInFrames.map(f => ({...f}));
+  selectedFrameIdx = 0;
+  renderFrameList();
+  renderPhoto();
+}
+
+function renderFrameList() {
+  const list = document.getElementById('frameList');
+  list.innerHTML = '';
+  photoFrames.forEach((f, i) => {
+    const div = document.createElement('div');
+    div.className = 'frame-thumb' + (i === selectedFrameIdx ? ' active' : '');
+    div.onclick = () => { selectedFrameIdx = i; renderFrameList(); renderPhoto(); };
+
+    if (f.isBuiltIn) {
+      // Draw thumbnail on mini canvas
+      const tc = document.createElement('canvas');
+      tc.width = 72; tc.height = 72;
+      const tctx = tc.getContext('2d');
+      f.thumbDraw(tctx, 72, 72);
+      div.appendChild(tc);
+      tc.style.width = '100%'; tc.style.height = '100%';
+    } else {
+      // Custom frame thumbnail
+      const img = document.createElement('img');
+      img.src = f.imgSrc;
+      div.appendChild(img);
+      // Remove button
+      const rm = document.createElement('button');
+      rm.className = 'remove-frame can-remove';
+      rm.textContent = '×';
+      rm.onclick = (e) => { e.stopPropagation(); removeFrame(i); };
+      div.appendChild(rm);
+    }
+    list.appendChild(div);
+  });
+}
+
+function removeFrame(idx) {
+  photoFrames.splice(idx, 1);
+  if (selectedFrameIdx >= photoFrames.length) selectedFrameIdx = photoFrames.length - 1;
+  if (selectedFrameIdx < 0) selectedFrameIdx = 0;
+  renderFrameList();
+  renderPhoto();
+}
+
+function renderPhoto() {
+  const canvas = document.getElementById('photoCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const frame = photoFrames[selectedFrameIdx];
+  if (!frame) { ctx.fillStyle='#f0f0f0';ctx.fillRect(0,0,w,h);return; }
+
+  if (frame.isBuiltIn) {
+    // Draw built-in frame BG
+    frame.draw(ctx, w, h);
+    const bw = 50, topPad = 90, botPad = 100;
+    const ix = bw, iy = topPad, iw = w - bw*2, ih = h - topPad - botPad;
+    if (userPhoto) {
+      drawCoverImage(ctx, userPhoto, ix, iy, iw, ih);
+    } else {
+      ctx.fillStyle='rgba(255,255,255,0.12)'; roundRect(ctx,ix,iy,iw,ih,6); ctx.fill();
+      ctx.font='42px serif';ctx.textAlign='center';ctx.fillText('📷',w/2,h/2-10);
+      ctx.font='16px Itim,cursive';ctx.fillStyle='rgba(255,255,255,0.5)';ctx.fillText('อัปโหลดรูปภาพของคุณ',w/2,h/2+24);
+    }
+    // Redraw overlays
+    frame.draw(ctx, w, h);
+  } else {
+    // Custom uploaded frame: photo first, frame on top
+    if (userPhoto) {
+      drawCoverImage(ctx, userPhoto, 0, 0, w, h);
+    } else {
+      ctx.fillStyle='#e8e8e8';ctx.fillRect(0,0,w,h);
+      ctx.font='42px serif';ctx.textAlign='center';ctx.fillText('📷',w/2,h/2-10);
+      ctx.font='16px Itim,cursive';ctx.fillStyle='#999';ctx.fillText('อัปโหลดรูปภาพของคุณ',w/2,h/2+24);
+    }
+    // Draw custom frame image on top
+    if (frame.imgObj) {
+      ctx.drawImage(frame.imgObj, 0, 0, w, h);
+    }
+  }
+}
+
+function drawCoverImage(ctx, img, x, y, w, h) {
+  const ir = img.width/img.height, ar = w/h;
+  let sx,sy,sw,sh;
+  if (ir > ar) { sh=img.height; sw=sh*ar; sx=(img.width-sw)/2; sy=0; }
+  else { sw=img.width; sh=sw/ar; sx=0; sy=(img.height-sh)/2; }
+  ctx.save();
+  roundRect(ctx,x,y,w,h,0);ctx.clip();
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
+  ctx.restore();
+}
+
+// Photo upload
+document.getElementById('photoUpload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const img = new Image();
+  img.onload = () => { userPhoto = img; renderPhoto(); };
+  img.src = URL.createObjectURL(file);
+});
+
+// Custom frame upload
+document.getElementById('frameUpload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const src = URL.createObjectURL(file);
+  const img = new Image();
+  img.onload = () => {
+    const newFrame = {
+      id: 'custom-' + Date.now(),
+      name: file.name.replace('.png','').slice(0,12),
+      isBuiltIn: false,
+      imgSrc: src,
+      imgObj: img
+    };
+    photoFrames.push(newFrame);
+    selectedFrameIdx = photoFrames.length - 1;
+    renderFrameList();
+    renderPhoto();
+  };
+  img.src = src;
+  e.target.value = '';
+});
+
+function savePhoto() {
+  const canvas = document.getElementById('photoCanvas');
+  const link = document.createElement('a');
+  link.download = 'NITIRAT-GreenHeart-Photo.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+initPhotobooth();
+</script>
+</body>
+</html>
