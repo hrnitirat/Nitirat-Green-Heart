@@ -530,6 +530,7 @@ body{font-family:'Prompt',sans-serif;overflow-x:hidden;background:#87ceeb;}
   font-size:4rem;color:var(--yellow);
 }
 @keyframes cdPop{0%{transform:scale(2);opacity:0;}50%{transform:scale(0.9);}100%{transform:scale(1);opacity:1;}}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
 .cam-status{
   font-family:'Bangers',cursive;font-size:1rem;letter-spacing:1px;
@@ -784,7 +785,7 @@ body{font-family:'Prompt',sans-serif;overflow-x:hidden;background:#87ceeb;}
         <span class="hnc-label">DRESS CODE</span>
         <span class="hnc-sub">แต่งตัวสีเขียว</span>
       </a>
-      <a href="#games" class="hero-nav-card hnc-game">
+      <a href="#game" class="hero-nav-card hnc-game">
         <div class="hnc-tape" style="background:var(--cyan);"></div>
         <span class="hnc-icon">🎮</span>
         <span class="hnc-label">MINI GAME</span>
@@ -1561,8 +1562,11 @@ function pbRenderResult(){
     <div class="strip-preview"><canvas id="stripCv" width="${FRAME_W}" height="${FRAME_H}"></canvas></div>
     <div class="pb-ctrls" style="margin-top:14px;">
       <button class="btn-save" onclick="pbSave()">💾 SAVE รูป</button>
+      <button class="btn-save" style="background:var(--neon-green);color:#000;" onclick="pbShare()">📤 SHARE</button>
+      <button class="btn-save" style="background:var(--cyan);color:#000;" id="btnQR" onclick="pbUploadAndQR()">📱 QR CODE</button>
       <button class="btn-retake" onclick="pbRetake()">🔄 ถ่ายใหม่</button>
-    </div>`;
+    </div>
+    <div id="qrArea" style="display:none;margin-top:16px;text-align:center;"></div>`;
   pbComposite();
 }
 
@@ -1633,6 +1637,147 @@ function pbSave(){
   a.download='NITIRAT-GreenHeart-Strip.png';
   a.href=cv.toDataURL('image/png');
   a.click();
+}
+
+async function pbShare(){
+  const cv=document.getElementById('stripCv');
+  if(!cv)return;
+  try{
+    const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+    const file=new File([blob],'NITIRAT-GreenHeart-Strip.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){
+      await navigator.share({title:'NITIRAT Green Heart 💚',text:'Photo Strip จากงาน NITIRAT Green Heart!',files:[file]});
+    } else {
+      pbOpenImageTab();
+    }
+  }catch(e){
+    if(e.name!=='AbortError') pbOpenImageTab();
+  }
+}
+
+function pbOpenImageTab(){
+  const cv=document.getElementById('stripCv');
+  if(!cv)return;
+  const dataUrl=cv.toDataURL('image/png');
+  const w=window.open('');
+  if(w){
+    w.document.write(`<html><head><title>NITIRAT Green Heart Photo Strip</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#1a1a1a;display:flex;align-items:center;justify-content:center;min-height:100vh;"><img src="${dataUrl}" style="max-width:100%;max-height:100vh;"></body></html>`);
+  }
+}
+
+// ===== GOOGLE DRIVE UPLOAD + QR =====
+// ⚠️ วาง URL ของ Google Apps Script ที่ Deploy แล้วตรงนี้
+const APPS_SCRIPT_URL = '';
+
+let pbDriveUrl = null; // เก็บลิงก์ Drive ไว้ใช้ซ้ำ
+
+async function pbUploadAndQR(){
+  const area=document.getElementById('qrArea');
+  if(!area)return;
+  
+  // Toggle off
+  if(area.style.display!=='none'&&pbDriveUrl){area.style.display='none';return;}
+  
+  area.style.display='block';
+  
+  // If no Apps Script URL configured, fallback to page QR
+  if(!APPS_SCRIPT_URL){
+    area.innerHTML=pbQRFallbackHTML();
+    const pageUrl=window.location.href.split('#')[0]+'#photobooth';
+    generateQR(document.getElementById('qrCanvas'),pageUrl);
+    return;
+  }
+  
+  // If already uploaded, show cached QR
+  if(pbDriveUrl){
+    area.innerHTML=pbQRSuccessHTML(pbDriveUrl);
+    generateQR(document.getElementById('qrCanvas'),pbDriveUrl);
+    return;
+  }
+
+  // Show uploading state
+  const btn=document.getElementById('btnQR');
+  if(btn){btn.disabled=true;btn.textContent='⏳ กำลังอัปโหลด...';}
+  area.innerHTML=`
+    <div style="background:#fff;display:inline-block;padding:24px 32px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.3);">
+      <div style="font-size:2rem;animation:spin 1s linear infinite;">⏳</div>
+      <p style="font-family:'Itim',cursive;font-size:0.85rem;color:#333;margin-top:8px;">กำลังอัปโหลดรูปไป Google Drive...</p>
+    </div>`;
+  
+  try{
+    const cv=document.getElementById('stripCv');
+    if(!cv)throw new Error('No canvas');
+    const imageData=cv.toDataURL('image/png');
+    const fileName='NITIRAT-GreenHeart-'+Date.now()+'.png';
+    
+    const resp=await fetch(APPS_SCRIPT_URL,{
+      method:'POST',
+      headers:{'Content-Type':'text/plain'},
+      body:JSON.stringify({image:imageData,fileName:fileName})
+    });
+    const result=await resp.json();
+    
+    if(result.success){
+      pbDriveUrl=result.directUrl;
+      area.innerHTML=pbQRSuccessHTML(result.viewUrl);
+      generateQR(document.getElementById('qrCanvas'),result.directUrl);
+    } else {
+      throw new Error(result.error||'Upload failed');
+    }
+  }catch(err){
+    console.error('Drive upload error:',err);
+    area.innerHTML=pbQRFallbackHTML();
+    const pageUrl=window.location.href.split('#')[0]+'#photobooth';
+    generateQR(document.getElementById('qrCanvas'),pageUrl);
+  }
+  
+  if(btn){btn.disabled=false;btn.textContent='📱 QR CODE';}
+}
+
+function pbQRSuccessHTML(viewUrl){
+  return `
+    <div style="background:#fff;display:inline-block;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.3);max-width:280px;">
+      <div style="background:var(--neon-green);color:#000;padding:6px 12px;border-radius:8px;font-family:'Bangers',cursive;font-size:0.9rem;margin-bottom:12px;">✅ อัปโหลดสำเร็จ!</div>
+      <canvas id="qrCanvas"></canvas>
+      <p style="font-family:'Itim',cursive;font-size:0.8rem;color:#333;margin-top:10px;line-height:1.5;">
+        📱 <b>สแกน QR</b> เพื่อเปิดรูปในมือถือ<br>
+        <span style="font-size:0.7rem;color:#666;">กดค้างที่รูป → Save Image</span>
+      </p>
+      <a href="${viewUrl}" target="_blank" style="display:inline-block;margin-top:8px;padding:6px 16px;background:var(--forest);color:#fff;border-radius:20px;font-family:'Itim',cursive;font-size:0.75rem;text-decoration:none;">
+        🔗 เปิดใน Google Drive
+      </a>
+    </div>`;
+}
+
+function pbQRFallbackHTML(){
+  return `
+    <div style="background:#fff;display:inline-block;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.3);max-width:280px;">
+      <canvas id="qrCanvas"></canvas>
+      <p style="font-family:'Itim',cursive;font-size:0.8rem;color:#333;margin-top:10px;line-height:1.5;">
+        📱 สแกนเพื่อเปิด Photobooth บนมือถือ<br>
+        <span style="font-size:0.7rem;color:#666;">แล้วถ่ายรูปในเครื่องตัวเอง</span>
+      </p>
+      <button onclick="pbOpenImageTab()" style="margin-top:8px;padding:6px 16px;background:var(--forest);color:#fff;border-radius:20px;font-family:'Itim',cursive;font-size:0.75rem;border:none;cursor:pointer;">
+        🖼️ เปิดรูปเต็มจอ (กดค้าง Save)
+      </button>
+    </div>`;
+}
+
+function generateQR(canvas,text){
+  if(!canvas)return;
+  const size=200;
+  canvas.width=size;canvas.height=size;
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,size,size);
+  const img=new Image();
+  img.crossOrigin='anonymous';
+  img.onload=()=>{ctx.drawImage(img,0,0,size,size);};
+  img.onerror=()=>{
+    ctx.fillStyle='#000';ctx.font='12px Itim';ctx.textAlign='center';
+    ctx.fillText('QR ไม่สามารถโหลดได้',size/2,size/2-10);
+    ctx.fillText('กด Share แทนค่ะ',size/2,size/2+10);
+  };
+  img.src='https://api.qrserver.com/v1/create-qr-code/?size='+size+'x'+size+'&data='+encodeURIComponent(text);
 }
 
 function pbRetake(){
